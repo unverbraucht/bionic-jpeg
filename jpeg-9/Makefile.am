@@ -81,8 +81,7 @@ bin_PROGRAMS = cjpeg djpeg jpegtran rdjpgcom wrjpgcom
 # Executable sources & libs
 cjpeg_SOURCES    = cjpeg.c rdppm.c rdgif.c rdtarga.c rdrle.c rdbmp.c \
         rdswitch.c cdjpeg.c
-cjpeg_LDADD      = $(srcdir)/../hybris-bridge/libhybris-bridge.la \
-	/usr/local/lib/libhybris-common.la
+cjpeg_LDADD      = libjpeg.la
 djpeg_SOURCES    = djpeg.c wrppm.c wrgif.c wrtarga.c wrrle.c wrbmp.c \
         rdcolmap.c cdjpeg.c
 djpeg_LDADD      = libjpeg.la
