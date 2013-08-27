@@ -25,8 +25,7 @@ INSTINCLUDES  = jerror.h jmorecfg.h jpeglib.h
 OTHERINCLUDES = cderror.h cdjpeg.h jdct.h jinclude.h jmemsys.h jpegint.h \
         jversion.h transupp.h
 
-# Manual pages (Automake uses 'MANS' for itself)
-DISTMANS= cjpeg.1 djpeg.1 jpegtran.1 rdjpgcom.1 wrjpgcom.1
+
 
 # Other documentation files
 DOCS= README install.txt usage.txt wizard.txt example.c libjpeg.txt \
@@ -62,47 +61,38 @@ TESTFILES= testorig.jpg testimg.ppm testimg.bmp testimg.jpg testprog.jpg \
         testimgp.jpg
 
 # libtool libraries to build
-lib_LTLIBRARIES = libjpeg.la
+#lib_LTLIBRARIES = libjpeg.la
 
 # Library sources for libjpeg.la
-libjpeg_la_SOURCES = $(LIBSOURCES)
+#libjpeg_la_SOURCES = $(LIBSOURCES)
 
 # LDFLAGS for libjpeg.la
-libjpeg_la_LDFLAGS = -no-undefined \
-        -version-info $(JPEG_LIB_VERSION)
+#libjpeg_la_LDFLAGS = -no-undefined \
+#        -version-info $(JPEG_LIB_VERSION)
 
-if HAVE_LD_VERSION_SCRIPT
-  libjpeg_la_LDFLAGS += -Wl,--version-script=$(srcdir)/libjpeg.map
-endif
+#if HAVE_LD_VERSION_SCRIPT
+#  libjpeg_la_LDFLAGS += -Wl,--version-script=$(srcdir)/libjpeg.map
+#endif
+
 
 # Executables to build
 bin_PROGRAMS = cjpeg djpeg jpegtran rdjpgcom wrjpgcom
 
+AM_CFLAGS	 = -I$(srcdir)/../ubuntu
+
 # Executable sources & libs
-cjpeg_SOURCES    = cjpeg.c rdppm.c rdgif.c rdtarga.c rdrle.c rdbmp.c \
-        rdswitch.c cdjpeg.c
-cjpeg_LDADD      = $(srcdir)/../hybris-bridge/libhybris-bridge.la \
-	/usr/local/lib/libhybris-common.la
-djpeg_SOURCES    = djpeg.c wrppm.c wrgif.c wrtarga.c wrrle.c wrbmp.c \
-        rdcolmap.c cdjpeg.c
-djpeg_LDADD      = libjpeg.la
-jpegtran_SOURCES = jpegtran.c rdswitch.c cdjpeg.c transupp.c
-jpegtran_LDADD   = libjpeg.la
-rdjpgcom_SOURCES = rdjpgcom.c
-wrjpgcom_SOURCES = wrjpgcom.c
+cjpeg_SOURCES    = ../jpeg-9/cjpeg.c ../jpeg-9/rdppm.c ../jpeg-9/rdgif.c ../jpeg-9/rdtarga.c ../jpeg-9/rdrle.c ../jpeg-9/rdbmp.c \
+        ../jpeg-9/rdswitch.c ../jpeg-9/cdjpeg.c
+cjpeg_LDADD      = $(srcdir)/../hybris-bridge/libhybris-bridge.la -lhybris-common
 
-# Manual pages to install
-man_MANS = $(DISTMANS)
+djpeg_SOURCES    = ../jpeg-9/djpeg.c ../jpeg-9/wrppm.c ../jpeg-9/wrgif.c ../jpeg-9/wrtarga.c ../jpeg-9/wrrle.c ../jpeg-9/wrbmp.c \
+        ../jpeg-9/rdcolmap.c ../jpeg-9/cdjpeg.c
+djpeg_LDADD      = $(srcdir)/../hybris-bridge/libhybris-bridge.la -lhybris-common
+jpegtran_SOURCES = ../jpeg-9/jpegtran.c ../jpeg-9/rdswitch.c ../jpeg-9/cdjpeg.c ../jpeg-9/transupp.c
+jpegtran_LDADD   = $(srcdir)/../hybris-bridge/libhybris-bridge.la -lhybris-common
+rdjpgcom_SOURCES = ../jpeg-9/rdjpgcom.c
+wrjpgcom_SOURCES = ../jpeg-9/wrjpgcom.c
 
-# Headers to install
-include_HEADERS = $(INSTINCLUDES)
-
-# Other distributed headers
-noinst_HEADERS = $(OTHERINCLUDES)
-
-# Other distributed files
-EXTRA_DIST =  $(DOCS) $(DISTMANS) $(MKFILES) $(CONFIGFILES) $(SYSDEPSOURCES) \
-        $(OTHERFILES) $(TESTFILES)
 
 # Files to be cleaned
 CLEANFILES = testout.ppm testout.bmp testout.jpg testoutp.ppm testoutp.jpg \
