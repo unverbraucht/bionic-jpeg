@@ -5,13 +5,13 @@
 # Configure script for IJG libjpeg
 #
 
-AC_INIT([libjpeg], [9.0.0])
+AC_INIT([libjpeg2], [9.0.0])
 
 # Directory where autotools helper scripts lives.
 AC_CONFIG_AUX_DIR([.])
 
 # Generate configuration headers.
-AC_CONFIG_HEADERS([jconfig.h:jconfig.cfg])
+#AC_CONFIG_HEADERS([jconfig.h:jconfig.cfg])
 
 # Hack: disable autoheader so that it doesn't overwrite our cfg template.
 AUTOHEADER="echo autoheader ignored"
@@ -355,8 +355,8 @@ AC_SUBST([MEMORYMGR])
 
 # Extract the library version IDs from jpeglib.h.
 AC_MSG_CHECKING([libjpeg version number])
-[major=`sed -ne 's/^#define JPEG_LIB_VERSION_MAJOR *\([0-9][0-9]*\).*$/\1/p' $srcdir/jpeglib.h`
-minor=`sed -ne 's/^#define JPEG_LIB_VERSION_MINOR *\([0-9][0-9]*\).*$/\1/p' $srcdir/jpeglib.h`]
+[major=`sed -ne 's/^#define JPEG_LIB_VERSION_MAJOR *\([0-9][0-9]*\).*$/\1/p' $srcdir/../jpeg-9/jpeglib.h`
+minor=`sed -ne 's/^#define JPEG_LIB_VERSION_MINOR *\([0-9][0-9]*\).*$/\1/p' $srcdir/../jpeg-9/jpeglib.h`]
 AC_SUBST([JPEG_LIB_VERSION],
          [`expr $major + $minor`:0:$minor])
 AC_MSG_RESULT([$JPEG_LIB_VERSION])

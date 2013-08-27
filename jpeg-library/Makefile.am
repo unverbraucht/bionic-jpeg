@@ -6,44 +6,25 @@
 #
 
 # Sources to build library
-LIBSOURCES = jaricom.c jcapimin.c jcapistd.c jcarith.c jccoefct.c jccolor.c \
-        jcdctmgr.c jchuff.c jcinit.c jcmainct.c jcmarker.c jcmaster.c \
-        jcomapi.c jcparam.c jcprepct.c jcsample.c jctrans.c jdapimin.c \
-        jdapistd.c jdarith.c jdatadst.c jdatasrc.c jdcoefct.c jdcolor.c \
-        jddctmgr.c jdhuff.c jdinput.c jdmainct.c jdmarker.c jdmaster.c \
-        jdmerge.c jdpostct.c jdsample.c jdtrans.c jerror.c jfdctflt.c \
-        jfdctfst.c jfdctint.c jidctflt.c jidctfst.c jidctint.c jquant1.c \
-        jquant2.c jutils.c jmemmgr.c @MEMORYMGR@.c
+LIBSOURCES = ../jpeg-9/jaricom.c ../jpeg-9/jcapimin.c ../jpeg-9/jcapistd.c ../jpeg-9/jcarith.c ../jpeg-9/jccoefct.c ../jpeg-9/jccolor.c \
+        ../jpeg-9/jcdctmgr.c ../jpeg-9/jchuff.c ../jpeg-9/jcinit.c ../jpeg-9/jcmainct.c ../jpeg-9/jcmarker.c ../jpeg-9/jcmaster.c \
+       ../jpeg-9/jcomapi.c ../jpeg-9/jcparam.c ../jpeg-9/jcprepct.c ../jpeg-9/jcsample.c ../jpeg-9/jctrans.c ../jpeg-9/jdapimin.c \
+        ../jpeg-9/jdapistd.c ../jpeg-9/jdarith.c ../jpeg-9/jdatadst.c ../jpeg-9/jdatasrc.c ../jpeg-9/jdcoefct.c ../jpeg-9/jdcolor.c \
+        ../jpeg-9/jddctmgr.c ../jpeg-9/jdhuff.c ../jpeg-9/jdinput.c ../jpeg-9/jdmainct.c ../jpeg-9/jdmarker.c ../jpeg-9/jdmaster.c \
+        ../jpeg-9/jdmerge.c ../jpeg-9/jdpostct.c ../jpeg-9/jdsample.c ../jpeg-9/jdtrans.c ../jpeg-9/jerror.c ../jpeg-9/jfdctflt.c \
+        ../jpeg-9/jfdctfst.c ../jpeg-9/jfdctint.c ../jpeg-9/jidctflt.c ../jpeg-9/jidctfst.c ../jpeg-9/jidctint.c ../jpeg-9/jquant1.c \
+        ../jpeg-9/jquant2.c ../jpeg-9/jutils.c ../jpeg-9/jmemmgr.c ../jpeg-9/jmemnobs.c
 
 # System dependent sources
-SYSDEPSOURCES = jmemansi.c jmemname.c jmemnobs.c jmemdos.c jmemmac.c
+#SYSDEPSOURCES = jmemansi.c jmemname.c jmemnobs.c jmemdos.c jmemmac.c
 
 # Headers which are installed to support the library
-INSTINCLUDES  = jerror.h jmorecfg.h jpeglib.h
+INSTINCLUDES  = ../jpeg-9/jerror.h ../jpeg-9/jmorecfg.h ../jpeg-9/jpeglib.h
 
 # Headers which are not installed
-OTHERINCLUDES = cderror.h cdjpeg.h jdct.h jinclude.h jmemsys.h jpegint.h \
-        jversion.h transupp.h
+OTHERINCLUDES = ../jpeg-9/cderror.h ../jpeg-9/cdjpeg.h ../jpeg-9/jdct.h ../jpeg-9/jinclude.h ../jpeg-9/jmemsys.h ../jpeg-9/jpegint.h \
+        ../jpeg-9/jversion.h ../jpeg-9/transupp.h
 
-# Manual pages (Automake uses 'MANS' for itself)
-DISTMANS= cjpeg.1 djpeg.1 jpegtran.1 rdjpgcom.1 wrjpgcom.1
-
-# Other documentation files
-DOCS= README install.txt usage.txt wizard.txt example.c libjpeg.txt \
-        structure.txt coderules.txt filelist.txt change.log
-
-# Makefiles for various systems
-MKFILES= configure Makefile.in makefile.ansi makefile.unix makefile.bcc \
-        makefile.mc6 makefile.dj makefile.wat makefile.vc makejdsw.vc6 \
-        makeadsw.vc6 makejdep.vc6 makejdsp.vc6 makejmak.vc6 makecdep.vc6 \
-        makecdsp.vc6 makecmak.vc6 makeddep.vc6 makeddsp.vc6 makedmak.vc6 \
-        maketdep.vc6 maketdsp.vc6 maketmak.vc6 makerdep.vc6 makerdsp.vc6 \
-        makermak.vc6 makewdep.vc6 makewdsp.vc6 makewmak.vc6 makejsln.v10 \
-        makeasln.v10 makejvcx.v10 makejfil.v10 makecvcx.v10 makecfil.v10 \
-        makedvcx.v10 makedfil.v10 maketvcx.v10 maketfil.v10 makervcx.v10 \
-        makerfil.v10 makewvcx.v10 makewfil.v10 makeproj.mac makcjpeg.st \
-        makdjpeg.st makljpeg.st maktjpeg.st makefile.manx makefile.sas \
-        makefile.mms makefile.vms makvms.opt
 
 # Configuration files
 CONFIGFILES= jconfig.cfg jconfig.bcc jconfig.mc6 jconfig.dj jconfig.wat \
@@ -61,37 +42,22 @@ OTHERFILES= jconfig.txt ckconfig.c jmemdosa.asm libjpeg.map
 TESTFILES= testorig.jpg testimg.ppm testimg.bmp testimg.jpg testprog.jpg \
         testimgp.jpg
 
+AM_CFLAGS	 = -I$(srcdir)/../ubuntu
+
+
 # libtool libraries to build
-lib_LTLIBRARIES = libjpeg.la
+lib_LTLIBRARIES = libjpeg2.la
 
 # Library sources for libjpeg.la
-libjpeg_la_SOURCES = $(LIBSOURCES)
+libjpeg2_la_SOURCES = $(LIBSOURCES)
 
 # LDFLAGS for libjpeg.la
-libjpeg_la_LDFLAGS = -no-undefined \
+libjpeg2_la_LDFLAGS = -no-undefined \
         -version-info $(JPEG_LIB_VERSION)
 
 if HAVE_LD_VERSION_SCRIPT
-  libjpeg_la_LDFLAGS += -Wl,--version-script=$(srcdir)/libjpeg.map
+  libjpeg2_la_LDFLAGS += -Wl,--version-script=$(srcdir)/../jpeg-9/libjpeg.map
 endif
-
-# Executables to build
-bin_PROGRAMS = cjpeg djpeg jpegtran rdjpgcom wrjpgcom
-
-# Executable sources & libs
-cjpeg_SOURCES    = cjpeg.c rdppm.c rdgif.c rdtarga.c rdrle.c rdbmp.c \
-        rdswitch.c cdjpeg.c
-cjpeg_LDADD      = libjpeg.la
-djpeg_SOURCES    = djpeg.c wrppm.c wrgif.c wrtarga.c wrrle.c wrbmp.c \
-        rdcolmap.c cdjpeg.c
-djpeg_LDADD      = libjpeg.la
-jpegtran_SOURCES = jpegtran.c rdswitch.c cdjpeg.c transupp.c
-jpegtran_LDADD   = libjpeg.la
-rdjpgcom_SOURCES = rdjpgcom.c
-wrjpgcom_SOURCES = wrjpgcom.c
-
-# Manual pages to install
-man_MANS = $(DISTMANS)
 
 # Headers to install
 include_HEADERS = $(INSTINCLUDES)
@@ -116,19 +82,3 @@ install-data-local:
 uninstall-local:
 	rm -f $(DESTDIR)$(includedir)/jconfig.h
 
-# Run tests
-test: check-local
-check-local:
-	rm -f testout*
-	./djpeg -dct int -ppm -outfile testout.ppm  $(srcdir)/testorig.jpg
-	./djpeg -dct int -bmp -colors 256 -outfile testout.bmp  $(srcdir)/testorig.jpg
-	./cjpeg -dct int -outfile testout.jpg  $(srcdir)/testimg.ppm
-	./djpeg -dct int -ppm -outfile testoutp.ppm $(srcdir)/testprog.jpg
-	./cjpeg -dct int -progressive -opt -outfile testoutp.jpg $(srcdir)/testimg.ppm
-	./jpegtran -outfile testoutt.jpg $(srcdir)/testprog.jpg
-	cmp $(srcdir)/testimg.ppm testout.ppm
-	cmp $(srcdir)/testimg.bmp testout.bmp
-	cmp $(srcdir)/testimg.jpg testout.jpg
-	cmp $(srcdir)/testimg.ppm testoutp.ppm
-	cmp $(srcdir)/testimgp.jpg testoutp.jpg
-	cmp $(srcdir)/testorig.jpg testoutt.jpg
