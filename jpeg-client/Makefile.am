@@ -3,77 +3,14 @@
 #  Automake Makefile for the JPEG library
 #
 #  This file is written by Bob Friesenhahn, Guido Vollbeding
+#  Modified to demonstrate libhybris
 #
 
-# Sources to build library
-LIBSOURCES = jaricom.c jcapimin.c jcapistd.c jcarith.c jccoefct.c jccolor.c \
-        jcdctmgr.c jchuff.c jcinit.c jcmainct.c jcmarker.c jcmaster.c \
-        jcomapi.c jcparam.c jcprepct.c jcsample.c jctrans.c jdapimin.c \
-        jdapistd.c jdarith.c jdatadst.c jdatasrc.c jdcoefct.c jdcolor.c \
-        jddctmgr.c jdhuff.c jdinput.c jdmainct.c jdmarker.c jdmaster.c \
-        jdmerge.c jdpostct.c jdsample.c jdtrans.c jerror.c jfdctflt.c \
-        jfdctfst.c jfdctint.c jidctflt.c jidctfst.c jidctint.c jquant1.c \
-        jquant2.c jutils.c jmemmgr.c @MEMORYMGR@.c
-
-# System dependent sources
-SYSDEPSOURCES = jmemansi.c jmemname.c jmemnobs.c jmemdos.c jmemmac.c
-
-# Headers which are installed to support the library
-INSTINCLUDES  = jerror.h jmorecfg.h jpeglib.h
-
-# Headers which are not installed
-OTHERINCLUDES = cderror.h cdjpeg.h jdct.h jinclude.h jmemsys.h jpegint.h \
-        jversion.h transupp.h
-
-
-
-# Other documentation files
-DOCS= README install.txt usage.txt wizard.txt example.c libjpeg.txt \
-        structure.txt coderules.txt filelist.txt change.log
-
-# Makefiles for various systems
-MKFILES= configure Makefile.in makefile.ansi makefile.unix makefile.bcc \
-        makefile.mc6 makefile.dj makefile.wat makefile.vc makejdsw.vc6 \
-        makeadsw.vc6 makejdep.vc6 makejdsp.vc6 makejmak.vc6 makecdep.vc6 \
-        makecdsp.vc6 makecmak.vc6 makeddep.vc6 makeddsp.vc6 makedmak.vc6 \
-        maketdep.vc6 maketdsp.vc6 maketmak.vc6 makerdep.vc6 makerdsp.vc6 \
-        makermak.vc6 makewdep.vc6 makewdsp.vc6 makewmak.vc6 makejsln.v10 \
-        makeasln.v10 makejvcx.v10 makejfil.v10 makecvcx.v10 makecfil.v10 \
-        makedvcx.v10 makedfil.v10 maketvcx.v10 maketfil.v10 makervcx.v10 \
-        makerfil.v10 makewvcx.v10 makewfil.v10 makeproj.mac makcjpeg.st \
-        makdjpeg.st makljpeg.st maktjpeg.st makefile.manx makefile.sas \
-        makefile.mms makefile.vms makvms.opt
-
-# Configuration files
-CONFIGFILES= jconfig.cfg jconfig.bcc jconfig.mc6 jconfig.dj jconfig.wat \
-        jconfig.vc jconfig.mac jconfig.st jconfig.manx jconfig.sas \
-        jconfig.vms
-
-# Support scripts for configure
-CONFIGUREFILES= config.guess config.sub install-sh ltmain.sh depcomp \
-        missing ar-lib
-
-# Miscellaneous support files
-OTHERFILES= jconfig.txt ckconfig.c jmemdosa.asm libjpeg.map
+ACLOCAL_AMFLAGS = -I autotools/m4
 
 # Test support files
 TESTFILES= testorig.jpg testimg.ppm testimg.bmp testimg.jpg testprog.jpg \
         testimgp.jpg
-
-# libtool libraries to build
-#lib_LTLIBRARIES = libjpeg.la
-
-# Library sources for libjpeg.la
-#libjpeg_la_SOURCES = $(LIBSOURCES)
-
-# LDFLAGS for libjpeg.la
-#libjpeg_la_LDFLAGS = -no-undefined \
-#        -version-info $(JPEG_LIB_VERSION)
-
-#if HAVE_LD_VERSION_SCRIPT
-#  libjpeg_la_LDFLAGS += -Wl,--version-script=$(srcdir)/libjpeg.map
-#endif
-
 
 # Executables to build
 bin_PROGRAMS = cjpeg djpeg jpegtran rdjpgcom wrjpgcom
@@ -82,11 +19,11 @@ AM_CFLAGS	 = -I$(srcdir)/../ubuntu
 
 # Executable sources & libs
 cjpeg_SOURCES    = ../jpeg-9/cjpeg.c ../jpeg-9/rdppm.c ../jpeg-9/rdgif.c ../jpeg-9/rdtarga.c ../jpeg-9/rdrle.c ../jpeg-9/rdbmp.c \
-        ../jpeg-9/rdswitch.c ../jpeg-9/cdjpeg.c
+                   ../jpeg-9/rdswitch.c ../jpeg-9/cdjpeg.c
 cjpeg_LDADD      = $(srcdir)/../jpeg-bridge/libjpeg-bridge.la -lhybris-common
 
 djpeg_SOURCES    = ../jpeg-9/djpeg.c ../jpeg-9/wrppm.c ../jpeg-9/wrgif.c ../jpeg-9/wrtarga.c ../jpeg-9/wrrle.c ../jpeg-9/wrbmp.c \
-        ../jpeg-9/rdcolmap.c ../jpeg-9/cdjpeg.c
+                   ../jpeg-9/rdcolmap.c ../jpeg-9/cdjpeg.c
 djpeg_LDADD      = $(srcdir)/../jpeg-bridge/libjpeg-bridge.la -lhybris-common
 jpegtran_SOURCES = ../jpeg-9/jpegtran.c ../jpeg-9/rdswitch.c ../jpeg-9/cdjpeg.c ../jpeg-9/transupp.c
 jpegtran_LDADD   = $(srcdir)/../jpeg-bridge/libjpeg-bridge.la -lhybris-common
@@ -98,14 +35,6 @@ wrjpgcom_SOURCES = ../jpeg-9/wrjpgcom.c
 CLEANFILES = testout.ppm testout.bmp testout.jpg testoutp.ppm testoutp.jpg \
         testoutt.jpg
 
-# Install jconfig.h
-install-data-local:
-	$(mkinstalldirs) $(DESTDIR)$(includedir)
-	$(INSTALL_HEADER) jconfig.h $(DESTDIR)$(includedir)/jconfig.h
-
-# Uninstall jconfig.h
-uninstall-local:
-	rm -f $(DESTDIR)$(includedir)/jconfig.h
 
 # Run tests
 test: check-local
