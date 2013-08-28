@@ -133,18 +133,17 @@ am__uninstall_files_from_dir = { \
   }
 am__installdirs = "$(DESTDIR)$(libdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
-libhybris_bridge_la_LIBADD =
-am_libhybris_bridge_la_OBJECTS =  \
-	libhybris_bridge_la-libjpeg-bridge.lo
-libhybris_bridge_la_OBJECTS = $(am_libhybris_bridge_la_OBJECTS)
+libjpeg_bridge_la_LIBADD =
+am_libjpeg_bridge_la_OBJECTS = libjpeg_bridge_la-libjpeg-bridge.lo
+libjpeg_bridge_la_OBJECTS = $(am_libjpeg_bridge_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-libhybris_bridge_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+libjpeg_bridge_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(libhybris_bridge_la_CFLAGS) $(CFLAGS) \
-	$(libhybris_bridge_la_LDFLAGS) $(LDFLAGS) -o $@
+	$(libjpeg_bridge_la_CFLAGS) $(CFLAGS) \
+	$(libjpeg_bridge_la_LDFLAGS) $(LDFLAGS) -o $@
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -179,8 +178,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(libhybris_bridge_la_SOURCES)
-DIST_SOURCES = $(libhybris_bridge_la_SOURCES)
+SOURCES = $(libjpeg_bridge_la_SOURCES)
+DIST_SOURCES = $(libjpeg_bridge_la_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -339,10 +338,10 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 ACLOCAL_AMFLAGS = -I autotools/m4
-lib_LTLIBRARIES = libhybris-bridge.la
-libhybris_bridge_la_SOURCES = libjpeg-bridge.c
-libhybris_bridge_la_LDFLAGS = -version-info 0:0:0
-libhybris_bridge_la_CFLAGS = -I$(srcdir)/../jpeg-9 \
+lib_LTLIBRARIES = libjpeg-bridge.la
+libjpeg_bridge_la_SOURCES = libjpeg-bridge.c
+libjpeg_bridge_la_LDFLAGS = -version-info 0:0:0
+libjpeg_bridge_la_CFLAGS = -I$(srcdir)/../jpeg-9 \
 	-I$(srcdir)/../libhybris-0.1.0+git20130606+c5d897a/hybris/include/ \
 	-I$(srcdir)/../ubuntu
 
@@ -420,8 +419,8 @@ clean-libLTLIBRARIES:
 	  rm -f $${locs}; \
 	}
 
-libhybris-bridge.la: $(libhybris_bridge_la_OBJECTS) $(libhybris_bridge_la_DEPENDENCIES) $(EXTRA_libhybris_bridge_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(libhybris_bridge_la_LINK) -rpath $(libdir) $(libhybris_bridge_la_OBJECTS) $(libhybris_bridge_la_LIBADD) $(LIBS)
+libjpeg-bridge.la: $(libjpeg_bridge_la_OBJECTS) $(libjpeg_bridge_la_DEPENDENCIES) $(EXTRA_libjpeg_bridge_la_DEPENDENCIES) 
+	$(AM_V_CCLD)$(libjpeg_bridge_la_LINK) -rpath $(libdir) $(libjpeg_bridge_la_OBJECTS) $(libjpeg_bridge_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -429,7 +428,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libhybris_bridge_la-libjpeg-bridge.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libjpeg_bridge_la-libjpeg-bridge.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -452,12 +451,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LTCOMPILE) -c -o $@ $<
 
-libhybris_bridge_la-libjpeg-bridge.lo: libjpeg-bridge.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libhybris_bridge_la_CFLAGS) $(CFLAGS) -MT libhybris_bridge_la-libjpeg-bridge.lo -MD -MP -MF $(DEPDIR)/libhybris_bridge_la-libjpeg-bridge.Tpo -c -o libhybris_bridge_la-libjpeg-bridge.lo `test -f 'libjpeg-bridge.c' || echo '$(srcdir)/'`libjpeg-bridge.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libhybris_bridge_la-libjpeg-bridge.Tpo $(DEPDIR)/libhybris_bridge_la-libjpeg-bridge.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libjpeg-bridge.c' object='libhybris_bridge_la-libjpeg-bridge.lo' libtool=yes @AMDEPBACKSLASH@
+libjpeg_bridge_la-libjpeg-bridge.lo: libjpeg-bridge.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libjpeg_bridge_la_CFLAGS) $(CFLAGS) -MT libjpeg_bridge_la-libjpeg-bridge.lo -MD -MP -MF $(DEPDIR)/libjpeg_bridge_la-libjpeg-bridge.Tpo -c -o libjpeg_bridge_la-libjpeg-bridge.lo `test -f 'libjpeg-bridge.c' || echo '$(srcdir)/'`libjpeg-bridge.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libjpeg_bridge_la-libjpeg-bridge.Tpo $(DEPDIR)/libjpeg_bridge_la-libjpeg-bridge.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libjpeg-bridge.c' object='libjpeg_bridge_la-libjpeg-bridge.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libhybris_bridge_la_CFLAGS) $(CFLAGS) -c -o libhybris_bridge_la-libjpeg-bridge.lo `test -f 'libjpeg-bridge.c' || echo '$(srcdir)/'`libjpeg-bridge.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libjpeg_bridge_la_CFLAGS) $(CFLAGS) -c -o libjpeg_bridge_la-libjpeg-bridge.lo `test -f 'libjpeg-bridge.c' || echo '$(srcdir)/'`libjpeg-bridge.c
 
 mostlyclean-libtool:
 	-rm -f *.lo

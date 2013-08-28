@@ -1,5 +1,5 @@
 
-AC_INIT([libhybris-bridge], [1.0.0])
+AC_INIT([libjpeg-bridge], [1.0.0])
 
 # Directory where autotools helper scripts lives.
 AC_CONFIG_AUX_DIR([autotools])

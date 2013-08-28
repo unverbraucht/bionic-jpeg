@@ -83,13 +83,13 @@ AM_CFLAGS	 = -I$(srcdir)/../ubuntu
 # Executable sources & libs
 cjpeg_SOURCES    = ../jpeg-9/cjpeg.c ../jpeg-9/rdppm.c ../jpeg-9/rdgif.c ../jpeg-9/rdtarga.c ../jpeg-9/rdrle.c ../jpeg-9/rdbmp.c \
         ../jpeg-9/rdswitch.c ../jpeg-9/cdjpeg.c
-cjpeg_LDADD      = $(srcdir)/../hybris-bridge/libhybris-bridge.la -lhybris-common
+cjpeg_LDADD      = $(srcdir)/../jpeg-bridge/libjpeg-bridge.la -lhybris-common
 
 djpeg_SOURCES    = ../jpeg-9/djpeg.c ../jpeg-9/wrppm.c ../jpeg-9/wrgif.c ../jpeg-9/wrtarga.c ../jpeg-9/wrrle.c ../jpeg-9/wrbmp.c \
         ../jpeg-9/rdcolmap.c ../jpeg-9/cdjpeg.c
-djpeg_LDADD      = $(srcdir)/../hybris-bridge/libhybris-bridge.la -lhybris-common
+djpeg_LDADD      = $(srcdir)/../jpeg-bridge/libjpeg-bridge.la -lhybris-common
 jpegtran_SOURCES = ../jpeg-9/jpegtran.c ../jpeg-9/rdswitch.c ../jpeg-9/cdjpeg.c ../jpeg-9/transupp.c
-jpegtran_LDADD   = $(srcdir)/../hybris-bridge/libhybris-bridge.la -lhybris-common
+jpegtran_LDADD   = $(srcdir)/../jpeg-bridge/libjpeg-bridge.la -lhybris-common
 rdjpgcom_SOURCES = ../jpeg-9/rdjpgcom.c
 wrjpgcom_SOURCES = ../jpeg-9/wrjpgcom.c
 
