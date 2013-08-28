@@ -50,6 +50,13 @@ AC_SUBST([JPEG_LIB_VERSION],
          [`expr $major + $minor`:0:$minor])
 AC_MSG_RESULT([$JPEG_LIB_VERSION])
 
+# Get hybris library
+AC_ARG_WITH([hybris-common-lib-path],
+  [AS_HELP_STRING([--with-hybris-common-lib-path], [location of the hybris-common library])],
+  [HYBRIS_LIBS="-L$withval -lhybris-common"],
+  [HYBRIS_LIBS='-lhybris-common'])
+AC_SUBST([HYBRIS_LIBS])
+
 
 AC_CHECK_LIB([hybris-common], [android_dlsym])
 

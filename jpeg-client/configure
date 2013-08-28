@@ -632,6 +632,7 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIBOBJS
+HYBRIS_LIBS
 JPEG_LIB_VERSION
 OTOOL64
 OTOOL
@@ -766,6 +767,7 @@ enable_fast_install
 with_gnu_ld
 with_sysroot
 enable_libtool_lock
+with_hybris_common_lib_path
 '
       ac_precious_vars='build_alias
 host_alias
@@ -1418,6 +1420,8 @@ Optional Packages:
   --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
   --with-sysroot=DIR Search for dependent libraries within DIR
                         (or the compiler's sysroot if not specified).
+  --with-hybris-common-lib-path
+                          location of the hybris-common library
 
 Some influential environment variables:
   CC          C compiler command
@@ -12169,6 +12173,17 @@ JPEG_LIB_VERSION=`expr $major + $minor`:0:$minor
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $JPEG_LIB_VERSION" >&5
 $as_echo "$JPEG_LIB_VERSION" >&6; }
+
+# Get hybris library
+
+# Check whether --with-hybris-common-lib-path was given.
+if test "${with_hybris_common_lib_path+set}" = set; then :
+  withval=$with_hybris_common_lib_path; HYBRIS_LIBS="-L$withval -lhybris-common"
+else
+  HYBRIS_LIBS='-lhybris-common'
+fi
+
+
 
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for android_dlsym in -lhybris-common" >&5
