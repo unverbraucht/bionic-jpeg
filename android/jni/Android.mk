@@ -2,7 +2,7 @@ LOCAL_PATH := ../jpeg-9/
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := libjpeg
+LOCAL_MODULE := libjpeg2
 LOCAL_C_INCLUDES := jni
 LOCAL_SRC_FILES := jaricom.c jcapimin.c jcapistd.c jcarith.c jccoefct.c jccolor.c \
         jcdctmgr.c jchuff.c jcinit.c jcmainct.c jcmarker.c jcmaster.c \
@@ -26,6 +26,6 @@ LOCAL_SRC_FILES := cjpeg.c \
         rdcolmap.c rdswitch.c transupp.c rdppm.c wrppm.c rdgif.c wrgif.c \
         rdtarga.c wrtarga.c rdbmp.c wrbmp.c rdrle.c wrrle.c
 
-LOCAL_SHARED_LIBRARIES := libjpeg
+LOCAL_SHARED_LIBRARIES := libjpeg2
 
 include $(BUILD_EXECUTABLE)
