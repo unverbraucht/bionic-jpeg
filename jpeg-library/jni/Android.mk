@@ -15,17 +15,3 @@ LOCAL_SRC_FILES := jaricom.c jcapimin.c jcapistd.c jcarith.c jccoefct.c jccolor.
 
 
 include $(BUILD_SHARED_LIBRARY)
-
-
-include $(CLEAR_VARS)
-
-LOCAL_MODULE    := cjpeg
-LOCAL_C_INCLUDES := jni
-LOCAL_SRC_FILES := cjpeg.c \
-	cdjpeg.c \
-        rdcolmap.c rdswitch.c transupp.c rdppm.c wrppm.c rdgif.c wrgif.c \
-        rdtarga.c wrtarga.c rdbmp.c wrbmp.c rdrle.c wrrle.c
-
-LOCAL_SHARED_LIBRARIES := libjpeg2
-
-include $(BUILD_EXECUTABLE)
