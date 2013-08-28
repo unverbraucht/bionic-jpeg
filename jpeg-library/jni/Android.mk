@@ -3,7 +3,7 @@ LOCAL_PATH := ../jpeg-9/
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := libjpeg2
-LOCAL_C_INCLUDES := jni
+LOCAL_C_INCLUDES := ../include
 LOCAL_SRC_FILES := jaricom.c jcapimin.c jcapistd.c jcarith.c jccoefct.c jccolor.c \
         jcdctmgr.c jchuff.c jcinit.c jcmainct.c jcmarker.c jcmaster.c \
         jcomapi.c jcparam.c jcprepct.c jcsample.c jctrans.c jdapimin.c \

@@ -321,7 +321,7 @@ ACLOCAL_AMFLAGS = -I autotools/m4
 TESTFILES = testorig.jpg testimg.ppm testimg.bmp testimg.jpg testprog.jpg \
         testimgp.jpg
 
-AM_CFLAGS = -I$(srcdir)/../ubuntu
+AM_CFLAGS = -I$(srcdir)/../include
 
 # Executable sources & libs
 cjpeg_SOURCES = ../jpeg-9/cjpeg.c ../jpeg-9/rdppm.c ../jpeg-9/rdgif.c ../jpeg-9/rdtarga.c ../jpeg-9/rdrle.c ../jpeg-9/rdbmp.c \
