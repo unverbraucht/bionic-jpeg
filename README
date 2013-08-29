@@ -51,9 +51,9 @@ verbatim.
     $ <path-to-ndk>/jpeg-library/ndk-build
   * Get an Ubuntu ARMHF build environment (eg a pbuilder for saucy/armhf)
     * Install libhybris' source, and the tools needed to build it
-    # apt-get source libhybris
     # apt-get install automake autoconf libtool pkg-config
-    # cd <hybris>
+    # apt-get source libhybris
+    # cd <eg libhybris-0.1.0+git20130606+c5d897a>/hybris
     # autoreconf --install
     # ./configure
     # make
@@ -74,7 +74,7 @@ verbatim.
     * copy jpeg-bridge/libjpeg-bridge.so to somewhere in ubuntu
     * copy jpeg-client/cjpeg to somewhere in ubuntu
 
-    * launch a shell on ubuntu, and setup the load library path
+    * launch a shell on the ubuntu device, and setup the load library path
     $ export LD_LIBRARY_PATH=/path/to/libjpeg-bridge.so
     $ cjpeg (enjoy!)
 
