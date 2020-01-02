@@ -8,7 +8,7 @@
 #include <jinclude.h>
 #include <jpeglib.h>
 
-#include <hybris/internal/binding.h>
+#include <hybris/common/binding.h>
 
 
 HYBRIS_LIBRARY_INITIALIZE(libjpeg, "libjpeg2.so")
