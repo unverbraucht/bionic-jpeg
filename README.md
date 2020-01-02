@@ -52,11 +52,14 @@ Note that libjpeg has been renamed to libjpeg2 in the build scripts,
 to avoid a collision with existing libjpeg installs
 
 * Get an Android NDK install, and build the android library
+```
     $ cd jpeg-library
     $ <path-to-ndk>/ndk-build
+```
 
 * Get an Ubuntu ARMHF build environment (eg a pbuilder for saucy/armhf)
     * Install libhybris' source, and the tools needed to build it
+```
     # apt-get install automake autoconf libtool pkg-config
     # apt-get source libhybris
     # cd <eg libhybris-0.1.0+git20130606+c5d897a>/hybris
@@ -64,8 +67,10 @@ to avoid a collision with existing libjpeg installs
     # ./configure
     # make
     # make install
+```
 
 * Now configure and make the samples
+```
     # cd jpeg-bridge
     # ./configure --with-hybris-internal-include-path=/path/to/libhybris/source/hybris/include/
     # make
@@ -73,7 +78,8 @@ to avoid a collision with existing libjpeg installs
     # cd jpeg-client
     # ./configure
     # make
-    
+```
+
 * copy the binaries to your device
 
   * Put the jpeg-library/libs/armeabi/libjpeg2.so into the android zip
@@ -81,6 +87,8 @@ to avoid a collision with existing libjpeg installs
   * copy jpeg-client/cjpeg to somewhere in ubuntu
 
   * launch a shell on the ubuntu device, and setup the load library path
+```
     $ export LD_LIBRARY_PATH=/path/to/libjpeg-bridge.so
     $ cjpeg (enjoy!)
+```
 
