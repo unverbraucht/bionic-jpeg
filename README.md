@@ -63,7 +63,7 @@ to avoid a collision with existing libjpeg installs
     # apt-get install automake autoconf libtool pkg-config
     # apt-get source libhybris
     # cd <eg libhybris-0.1.0+git20130606+c5d897a>/hybris
-    # autoreconf --install
+    # autoreconf --install --prefix=/opt/libhybris
     # ./configure
     # make
     # make install
@@ -76,7 +76,7 @@ to avoid a collision with existing libjpeg installs
     # make
 
     # cd jpeg-client
-    # ./configure
+    # ./configure --with-hybris-common-lib-path=/opt/libhybris/lib
     # make
 ```
 
